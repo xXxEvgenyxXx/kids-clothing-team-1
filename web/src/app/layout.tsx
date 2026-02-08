@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Header } from "@/widgets/Header";
 
 interface MainLayoutProps {
     children: ReactNode
@@ -12,9 +13,7 @@ const MainLayout = (props: MainLayoutProps) => {
             <title>Document</title>
         </head>
         <body>
-            <header>
-                шапка
-            </header>
+            <Header />
             <main>
                 {props.children}
             </main>

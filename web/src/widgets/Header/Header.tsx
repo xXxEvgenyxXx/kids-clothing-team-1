@@ -1,4 +1,5 @@
-import s from './header.scss'
+import s from './header.module.scss'
+import Link from 'next/link'
 
 export const Header = () => {
     return (
