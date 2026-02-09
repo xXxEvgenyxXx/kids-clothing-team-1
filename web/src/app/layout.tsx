@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Header } from "@/widgets/Header";
+import s from './layout.module.scss'
 
 interface MainLayoutProps {
     children: ReactNode
@@ -12,7 +13,7 @@ const MainLayout = (props: MainLayoutProps) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>Эксклюзив</title>
         </head>
-        <body>
+        <body className={s.body}>
             <Header />
             <main>
                 {props.children}
