@@ -3,21 +3,22 @@ import Link from 'next/link'
 import { routes } from '@/shared/constants'
 import {Input} from 'antd'
 import {HeartOutlined, ShoppingCartOutlined} from '@ant-design/icons'
+import clsx from 'clsx'
 
 export const Header = () => {
     return (
         <header className={s.header}>
             <h2 className={s.logo}>Эксклюзив</h2>
             <div>
-                <Link href={routes.main}>Главная</Link>
-                <Link href={routes.contacts}>Контакты</Link>
-                <Link href={routes.about}>О нас</Link>
-                <Link href={routes.favorite}>Избранное</Link>
+                <Link className={s.headerLink} href={routes.main}>Главная</Link>
+                <Link className={s.headerLink} href={routes.contacts}>Контакты</Link>
+                <Link className={s.headerLink} href={routes.about}>О нас</Link>
+                <Link className={s.headerLink} href={routes.favorite}>Избранное</Link>
             </div>
             <div>
                 <Input placeholder="Что вы ищете?" variant="outlined" />
-                <HeartOutlined />
-                <ShoppingCartOutlined />
+                <Link href={routes.favorite} className={clsx([s.headerLink,s.headerIconLink])}><HeartOutlined /></Link>
+                <Link href={routes.basket} className={clsx([s.headerLink,s.headerIconLink])}><ShoppingCartOutlined /></Link>
             </div>
         </header>
     )
