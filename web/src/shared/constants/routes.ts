@@ -1,7 +1,7 @@
 export const routes = {
     main: '/',
     catalog: '/catalog',
-    basket: '/basket',
+    cart: '/cart',
     favorite: '/favorite',
     delivery: 'delivery',
     contacts: '/contacts',

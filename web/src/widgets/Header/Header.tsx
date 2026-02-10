@@ -19,7 +19,7 @@ export const Header = () => {
             <div className={s.headerLinksWrapper}>
                 <Input placeholder="Что вы ищете?" variant="outlined"/> 
                 <Link href={routes.favorite} className={clsx([s.headerLink,s.headerIconLink])}><HeartOutlined /></Link>
-                <Link href={routes.basket} className={clsx([s.headerLink,s.headerIconLink])}><ShoppingCartOutlined /></Link>
+                <Link href={routes.cart} className={clsx([s.headerLink,s.headerIconLink])}><ShoppingCartOutlined /></Link>
             </div>
         </header>
     )
