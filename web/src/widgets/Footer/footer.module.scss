@@ -4,4 +4,13 @@
     display: flex;
     justify-content: space-between;
     padding:80px 100px;
+    .footerLink {
+        color:white;
+        text-decoration: none;
+        transition:0.3s;
+        &:hover {
+            color:blue;
+            transition:0.3s;
+        }
+    }
 }

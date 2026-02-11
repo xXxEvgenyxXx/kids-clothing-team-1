@@ -22,10 +22,10 @@ export function Footer(){
             <div className={s.footerLinksWrapper}>
                 <h3 className={s.footerLinksHeader}>Быстрые ссылки</h3>
                 <div className={s.footerLinks}>
-                    <p><Link href="/">Главная</Link></p>
-                    <p><Link href="/catalog">Каталог</Link></p>
-                    <p><Link href="/favorite">Избранное</Link></p>
-                    <p><Link href="/contacts">Контакты</Link></p>
+                    <p><Link className={s.footerLink} href="/">Главная</Link></p>
+                    <p><Link className={s.footerLink} href="/catalog">Каталог</Link></p>
+                    <p><Link className={s.footerLink} href="/favorite">Избранное</Link></p>
+                    <p><Link className={s.footerLink} href="/contacts">Контакты</Link></p>
                 </div>
             </div>
         </footer>

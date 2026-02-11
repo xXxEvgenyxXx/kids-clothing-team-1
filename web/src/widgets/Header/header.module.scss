@@ -16,7 +16,9 @@
 .headerLink {
     text-decoration: none;
     color:black;
-}
-.headerLink:hover {
-    color:blue;
+    transition:0.3s;
+    &:hover {
+        color:blue;
+        transition:0.3s;
+    }
 }
