@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
 import s from './layout.module.scss'
 
 interface MainLayoutProps {
@@ -18,9 +19,7 @@ const MainLayout = (props: MainLayoutProps) => {
             <main>
                 {props.children}
             </main>
-            <footer>
-                подвал
-            </footer>
+            <Footer />
         </body>
         </html>
     );
