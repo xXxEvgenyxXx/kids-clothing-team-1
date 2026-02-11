@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Header } from "@/widgets/Header";
 import { Footer } from "@/widgets/Footer";
+import './globals.scss'
 import s from './layout.module.scss'
 
 interface MainLayoutProps {
@@ -16,7 +17,7 @@ const MainLayout = (props: MainLayoutProps) => {
         </head>
         <body className={s.body}>
             <Header />
-            <main>
+            <main className={s.main}>
                 {props.children}
             </main>
             <Footer />

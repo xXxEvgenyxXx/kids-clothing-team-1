@@ -1,0 +1,54 @@
+.mainPageWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    width: 100%;
+    padding: 20px; 
+    .bannerImageWrapper {
+        position: relative;
+        width: 90%;
+        aspect-ratio: 831 / 428;
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    .banner {
+        background-color: black;
+        color:white;
+        border-radius: 18px;
+        width:90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:90px 0;
+        .bannerText {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    .featIcons {
+        display: flex;
+        justify-content: space-around;
+        width:100%;
+        .featIconWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .featIcon {
+                background-color: black;
+                padding: 15px;
+                border: 7px solid gray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                .icon {
+                    font-size:40px;
+                    color:white;
+                }
+            }
+        }
+    }
+}
