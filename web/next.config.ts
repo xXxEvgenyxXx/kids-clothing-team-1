@@ -5,7 +5,10 @@ const nextConfig: NextConfig = {
   output: 'export',
   distDir: 'out',
   assetPrefix: "./",
-  trailingSlash:true
+  trailingSlash:true,
+  images: {
+    unoptimized: true, // запрещает Next.js обрабатывать изображения
+  }
 };
 
 export default nextConfig;
