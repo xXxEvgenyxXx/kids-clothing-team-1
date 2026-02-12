@@ -26,9 +26,6 @@ importers:
       react-dom:
         specifier: 19.2.3
         version: 19.2.3(react@19.2.3)
-      sass:
-        specifier: ^1.97.3
-        version: 1.97.3
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -42,6 +39,9 @@ importers:
       gh-pages:
         specifier: ^6.0.0
         version: 6.3.0
+      sass:
+        specifier: ^1.97.3
+        version: 1.97.3
       typescript:
         specifier: ^5
         version: 5.9.3
