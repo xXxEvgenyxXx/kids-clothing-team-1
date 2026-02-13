@@ -4,7 +4,7 @@ import path from "path";
 const nextConfig: NextConfig = {
   output: 'export',
   distDir: 'out',
-  assetPrefix: "./",
+  assetPrefix: "",
   trailingSlash:true,
   images: {
     unoptimized: true, // запрещает Next.js обрабатывать изображения
