@@ -1,7 +1,16 @@
+import s from './catalog.module.scss'
+
 const CatalogPage = () => {
     
     return (
-        <>Каталог</>
+        <div className={s.catalogPageWrapper}>
+            <div className={s.filtersWrapper}>
+
+            </div>
+            <div>
+                <h1>Наши товары</h1>
+            </div>
+        </div>
     );
 };
 

@@ -12,6 +12,7 @@ export const Header = () => {
             <h2 className={s.logo}>Эксклюзив</h2>
             <div className={s.headerLinksWrapper}>
                 <Link className={s.headerLink} href={routes.main}>Главная</Link>
+                <Link className={s.headerLink} href={routes.catalog}>Каталог</Link>
                 <Link className={s.headerLink} href={routes.contacts}>Контакты</Link>
                 <Link className={s.headerLink} href={routes.about}>О нас</Link>
                 <Link className={s.headerLink} href={routes.favorite}>Избранное</Link>
