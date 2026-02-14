@@ -15,7 +15,6 @@ export function ItemCard(props: ItemCardProps) {
                     <img
                         src={props.itemImage}
                         alt={props.itemAlt || "изображение товара"}
-                        style={{ width: '100%', height: 'auto' }}
                     />
                 )}
             </div>
