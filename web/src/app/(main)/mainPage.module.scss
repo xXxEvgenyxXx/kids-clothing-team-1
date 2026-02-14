@@ -14,8 +14,8 @@
     }
 
     .banner {
-        background-color: var(--bg-color);
-        color:white;
+        background-color: var(--text-color);
+        color:var(--bg-color);
         border-radius: 18px;
         width:90%;
         display: flex;
@@ -37,16 +37,16 @@
             flex-direction: column;
             align-items: center;
             .featIcon {
-                background-color: var(--bg-color);
+                background-color: var(--text-color);
                 padding: 15px;
-                border: 7px solid gray;
+                border: 7px solid var(--border-color);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 border-radius: 50%;
                 .icon {
                     font-size:40px;
-                    color:white;
+                    color:var(--bg-color);
                 }
             }
         }
