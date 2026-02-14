@@ -1,6 +1,14 @@
+:root {
+    --text-color: black;
+    --text-hover-color: blue;
+    --bg-color: white;
+    --border-color:gray;
+    --secondary-color: #DB4444;
+}
+
 .ant-btn-primary {
-    background-color: #DB4444;
-    border-color: #DB4444;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
 }
 .body {
     font-family: 'Inter',sans-serif;

@@ -1,5 +1,5 @@
 .header {
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,10 +15,10 @@
 }
 .headerLink {
     text-decoration: none;
-    color:black;
+    color:var(--text-color);
     transition:0.3s;
     &:hover {
-        color:blue;
+        color:var(--text-hover-color);
         transition:0.3s;
     }
 }
