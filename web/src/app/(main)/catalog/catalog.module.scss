@@ -1,0 +1,15 @@
+.catalogPageWrapper {
+    display: flex;
+}
+.itemsSection {
+    width:75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .itemsHeader {
+        font-size:36px;
+    }
+}
+.filtersSection {
+    width:25%;
+}

@@ -1,5 +1,4 @@
 import s from './mainPage.module.scss'
-import Image from 'next/image';
 import { Button } from 'antd';
 import { TruckOutlined, CustomerServiceOutlined, SafetyOutlined } from '@ant-design/icons';
 
@@ -8,10 +7,14 @@ const MainPage = () => {
     return (
         <div className={s.mainPageWrapper}>
             <div className={s.bannerImageWrapper}>
-                <Image
-                    fill
+                <img
                     src="/images/banner-image.png"
                     alt="картинка баннера"
+                    style={{
+                        objectFit: 'cover',
+                        width: '100%',
+                        height: '100%',
+                    }}
                 />
             </div>
             <div className={s.banner}>

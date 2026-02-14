@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   assetPrefix: "",
   trailingSlash:true,
   images: {
-    unoptimized: true, // запрещает Next.js обрабатывать изображения
+    unoptimized: true,
   }
 };
 

@@ -1,0 +1,11 @@
+.itemCard {
+    border: 1px solid black;
+    border-radius:12px;
+    .itemImage {
+        width:270px;
+        height:250px;
+        background-color: gray;
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+    }
+}
