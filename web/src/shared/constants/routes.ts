@@ -3,7 +3,7 @@ export const routes = {
     catalog: '/catalog',
     cart: '/cart',
     favorite: '/favorite',
-    delivery: 'delivery',
+    delivery: '/delivery',
     contacts: '/contacts',
-    about: 'about'
+    about: '/about'
 }
