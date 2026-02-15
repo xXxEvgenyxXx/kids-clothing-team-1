@@ -1,5 +1,5 @@
 import s from './cart.module.scss'
-import { CartItem } from '@/widgets/CartItem/CartItem';
+import { CartItem } from '@/widgets/CartItem';
 
 const CartPage = () => {
     
