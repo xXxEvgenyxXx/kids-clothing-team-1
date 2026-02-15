@@ -1,8 +1,8 @@
-const DeliveryPage = () => {
+const FavoritePage = () => {
     
     return (
         <>Избранное</>
     );
 };
 
-export default DeliveryPage;
+export default FavoritePage;
