@@ -1,22 +1,27 @@
 .cartPageWrapper {
-    .cartItemsWrapper {
-        width:100%;
-        .cartItemsHeader {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 40px;
-            border-radius:12px;
-            margin-bottom:40px;
-            box-shadow: 0px 0px 13px 5px var(--box-shadow-color);
-            .cartItemCategory {
-                font-weight: 400;
-                font-size:18px;
-            }
-        }
-        .cartItems {
-            display: flex;
-            flex-direction: column;
-            gap:40px;
-        }
+  .cartItemsWrapper {
+    width: 100%;
+
+    .cartItemsHeader {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr; // Адаптируйте пропорции по необходимости
+      align-items: center;
+      padding: 15px 40px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      box-shadow: 0px 0px 13px 5px var(--box-shadow-color);
+
+      .cartItemCategory {
+        font-weight: 400;
+        font-size: 18px;
+        margin: 0;
+      }
     }
+
+    .cartItems {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
 }
