@@ -11,8 +11,16 @@
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
-.body {
+html,body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+body {
     font-family: 'Inter',sans-serif;
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
 }
 img {
     object-fit: cover;
