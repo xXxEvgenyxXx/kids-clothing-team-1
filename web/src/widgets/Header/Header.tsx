@@ -15,7 +15,6 @@ export const Header = () => {
                 <Link className={s.headerLink} href={routes.catalog}>Каталог</Link>
                 <Link className={s.headerLink} href={routes.contacts}>Контакты</Link>
                 <Link className={s.headerLink} href={routes.about}>О нас</Link>
-                <Link className={s.headerLink} href={routes.favorite}>Избранное</Link>
             </div>
             <div className={s.headerLinksWrapper}>
                 <Input placeholder="Что вы ищете?" variant="outlined"/> 
