@@ -4,12 +4,17 @@
     --bg-color: white;
     --border-color:gray;
     --secondary-color: #DB4444;
+    --button-hover-color: #E07575;
     --box-shadow-color: rgba(0, 0, 0, 0.05);
 }
 
 .ant-btn-primary {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
+}
+.ant-btn-primary:hover {
+    background-color: var(--button-hover-color) !important;
+    border-color:var(--button-hover-color) !important;
 }
 html,body {
     margin:0;

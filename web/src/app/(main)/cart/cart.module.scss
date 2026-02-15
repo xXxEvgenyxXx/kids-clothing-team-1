@@ -24,4 +24,20 @@
       gap: 40px;
     }
   }
+  .cartActionsWrapper {
+    display: flex;
+    justify-content: center;
+    gap:300px;
+    margin-top:50px;
+    .bonusCodeWrapper{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .goToDelivery {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+    }
+  }
 }

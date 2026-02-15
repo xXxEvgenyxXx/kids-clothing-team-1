@@ -1,5 +1,6 @@
 import s from './cart.module.scss'
 import { CartItem } from '@/widgets/CartItem';
+import { Button, Input } from 'antd';
 
 const CartPage = () => {
     
@@ -34,7 +35,19 @@ const CartPage = () => {
                 </div>
             </div>
             <div className={s.cartActionsWrapper}>
-
+                <div className={s.bonusCodeWrapper}>
+                    <Input placeholder="Бонусный код" />
+                    <Button type="primary">Активировать бонус</Button>
+                </div>
+                <div className={s.goToDelivery}>
+                    <h3>Итоговая сумма</h3>
+                    <div className={s.sumDescription}>
+                        <p>Доставка: 0</p>
+                        <hr/>
+                        <p>Итог: 0</p>
+                    </div>
+                    <Button type="primary" href="/delivery" className={s.goToDeliveryButton}>Перейти к деталям доставки</Button>
+                </div>
             </div>
         </div>
     );
