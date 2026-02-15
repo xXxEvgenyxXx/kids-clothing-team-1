@@ -1,4 +1,5 @@
 import s from './cart.module.scss'
+import { CartItem } from '@/widgets/CartItem/CartItem';
 
 const CartPage = () => {
     
@@ -12,7 +13,24 @@ const CartPage = () => {
                     <h2 className={s.cartItemCategory}>Сумма</h2>
                 </div>
                 <div className={s.cartItems}>
-
+                    <CartItem 
+                        itemImage="/images/banner-image.png"
+                        itemName="название товара"
+                        itemPrice={1234}
+                        initialQuantity={2}
+                    />
+                    <CartItem 
+                        itemImage="/images/banner-image.png"
+                        itemName="название товара"
+                        itemPrice={1234}
+                        initialQuantity={2}
+                    />
+                    <CartItem 
+                        itemImage="/images/banner-image.png"
+                        itemName="название товара"
+                        itemPrice={1234}
+                        initialQuantity={2}
+                    />
                 </div>
             </div>
             <div className={s.cartActionsWrapper}>
