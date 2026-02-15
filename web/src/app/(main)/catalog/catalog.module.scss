@@ -9,6 +9,11 @@
     .itemsHeader {
         font-size:36px;
     }
+    .itemsWrapper {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap:40px;
+    }
 }
 .filtersSection {
     width:25%;

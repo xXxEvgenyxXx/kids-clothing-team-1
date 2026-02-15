@@ -17,6 +17,72 @@ const CatalogPage = () => {
                         itemTitle="товар" 
                         itemPrice={12345}
                     />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
+                    <ItemCard 
+                        itemImage="/images/banner-image.png" 
+                        itemAlt="картинка"
+                        itemTitle="товар" 
+                        itemPrice={12345}
+                    />
                 </div>
             </section>
         </div>
