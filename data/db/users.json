@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "email": "elena.ivanova@example.com",
+    "firstName": "Елена",
+    "lastName": "Иванова",
+    "phone": "+7 (999) 123-45-67",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Москва, ул. Ленина, д. 10, кв. 25",
+        "zip": "101000"
+      }
+    ],
+    "createdAt": "2025-01-05T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "email": "olga.petrova@example.com",
+    "firstName": "Ольга",
+    "lastName": "Петрова",
+    "phone": "+7 (999) 234-56-78",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Санкт-Петербург, пр. Невский, д. 20, кв. 15",
+        "zip": "191000"
+      }
+    ],
+    "createdAt": "2025-01-07T11:30:00Z"
+  },
+  {
+    "id": 3,
+    "email": "svetlana.smirnova@example.com",
+    "firstName": "Светлана",
+    "lastName": "Смирнова",
+    "phone": "+7 (999) 345-67-89",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Казань, ул. Баумана, д. 5, кв. 10",
+        "zip": "420000"
+      }
+    ],
+    "createdAt": "2025-01-09T09:15:00Z"
+  },
+  {
+    "id": 4,
+    "email": "maria.vasilieva@example.com",
+    "firstName": "Мария",
+    "lastName": "Васильева",
+    "phone": "+7 (999) 456-78-90",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Екатеринбург, ул. Малышева, д. 15, кв. 32",
+        "zip": "620000"
+      }
+    ],
+    "createdAt": "2025-01-12T13:40:00Z"
+  },
+  {
+    "id": 5,
+    "email": "anna.kuznetsova@example.com",
+    "firstName": "Анна",
+    "lastName": "Кузнецова",
+    "phone": "+7 (999) 567-89-01",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Новосибирск, ул. Красный проспект, д. 30, кв. 5",
+        "zip": "630000"
+      }
+    ],
+    "createdAt": "2025-01-14T16:20:00Z"
+  },
+  {
+    "id": 6,
+    "email": "tatiana.popova@example.com",
+    "firstName": "Татьяна",
+    "lastName": "Попова",
+    "phone": "+7 (999) 678-90-12",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Нижний Новгород, ул. Горького, д. 25, кв. 7",
+        "zip": "603000"
+      }
+    ],
+    "createdAt": "2025-01-16T10:50:00Z"
+  },
+  {
+    "id": 7,
+    "email": "irina.sokolova@example.com",
+    "firstName": "Ирина",
+    "lastName": "Соколова",
+    "phone": "+7 (999) 789-01-23",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Самара, ул. Куйбышева, д. 40, кв. 12",
+        "zip": "443000"
+      }
+    ],
+    "createdAt": "2025-01-18T12:10:00Z"
+  },
+  {
+    "id": 8,
+    "email": "natalia.volkova@example.com",
+    "firstName": "Наталья",
+    "lastName": "Волкова",
+    "phone": "+7 (999) 890-12-34",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Омск, ул. Ленина, д. 50, кв. 18",
+        "zip": "644000"
+      }
+    ],
+    "createdAt": "2025-01-20T14:30:00Z"
+  },
+  {
+    "id": 9,
+    "email": "ekaterina.morozova@example.com",
+    "firstName": "Екатерина",
+    "lastName": "Морозова",
+    "phone": "+7 (999) 901-23-45",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Ростов-на-Дону, ул. Большая Садовая, д. 35, кв. 22",
+        "zip": "344000"
+      }
+    ],
+    "createdAt": "2025-01-22T09:45:00Z"
+  },
+  {
+    "id": 10,
+    "email": "daria.novikova@example.com",
+    "firstName": "Дарья",
+    "lastName": "Новикова",
+    "phone": "+7 (999) 012-34-56",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Уфа, ул. Октября, д. 45, кв. 8",
+        "zip": "450000"
+      }
+    ],
+    "createdAt": "2025-01-24T11:55:00Z"
+  }
+]
