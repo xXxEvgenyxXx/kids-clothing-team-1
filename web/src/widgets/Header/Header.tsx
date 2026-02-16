@@ -1,6 +1,6 @@
 import s from './header.module.scss'
 import Link from 'next/link'
-import { routes } from '@/shared/constants'
+import { routes } from '@/constants'
 import {Input} from 'antd'
 import {HeartOutlined, ShoppingCartOutlined} from '@ant-design/icons'
 import clsx from 'clsx'
