@@ -1,12 +1,15 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
-
-  # 1. Корневой запрос → index.html
-  RewriteRule ^$ out/index.html [L]
-
-  # 2. Все остальные запросы → out/путь/index.html
+  # Указываем базовый путь для подпапки
+  RewriteBase /kids-clothing-team-1/web/
+  
+  # 1. Добавляем слеш в конец URL (для совместимости с trailingSlash: true)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !(.*)/$
+  RewriteRule ^(.*)$ $1/ [R=301,L]
+  
+  # 2. Все запросы к несуществующим файлам → index.html
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ out/$1/index.html [L]
+  RewriteRule . index.html [L]
 </IfModule>
