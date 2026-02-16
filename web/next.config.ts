@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'export',
   distDir: 'out',
-  assetPrefix: "",
+  assetPrefix: "./",
+  trailingSlash:true,
   images: {
     unoptimized: true,
   }

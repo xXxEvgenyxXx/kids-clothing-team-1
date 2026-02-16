@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Корневой запрос → index.html
+  RewriteRule ^$ out/index.html [L]
+
+  # 2. Все остальные запросы → out/путь/index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ out/$1/index.html [L]
+</IfModule>
