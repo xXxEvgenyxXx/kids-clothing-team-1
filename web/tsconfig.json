@@ -26,8 +26,11 @@
       "@/*": [
         "./src/*"
       ],
-      "@/shared": [
-        "../shared"
+      "@/types": [
+        "./src/types"
+      ],
+      "@/lib": [
+        "./src/lib"
       ],
       "@/widgets": [
         "./src/widgets"
