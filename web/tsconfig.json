@@ -40,6 +40,9 @@
       ],
       "@/assets":[
         "./src/assets"
+      ],
+      "@/db":[
+        "../data"
       ]
     }
   },
