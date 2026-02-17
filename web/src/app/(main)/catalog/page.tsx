@@ -33,8 +33,8 @@ const CatalogPage = () => {
     fetchProducts();
   }, []);
 
-  if (loading) return <div className={s.loading}>Загрузка товаров...</div>;
-  if (error) return <div className={s.error}>Ошибка: {error}</div>;
+  if (loading) return <div>Загрузка товаров...</div>;
+  if (error) return <div>Ошибка: {error}</div>;
 
   return (
     <div className={s.catalogPageWrapper}>
