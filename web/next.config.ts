@@ -1,10 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // Remove `output: 'export'` to allow dynamic server routes that read/write
+  // local JSON files during development.
   distDir: 'out',
   assetPrefix: "/",
-  trailingSlash:true,
+  trailingSlash: true,
   images: {
     unoptimized: true,
   }
