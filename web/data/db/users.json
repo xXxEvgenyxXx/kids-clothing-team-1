@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "email": "elena.ivanova@example.com",
+    "firstName": "Елена",
+    "lastName": "Иванова",
+    "phone": "+7 (999) 123-45-67",
+    "addresses": [
+      {
+        "type": "shipping",
+        "fullAddress": "г. Москва, ул. Ленина, д. 10, кв. 25",
+        "zip": "101000"
+      }
+    ],
+    "createdAt": "2025-01-05T10:00:00Z"
+  }
+]
