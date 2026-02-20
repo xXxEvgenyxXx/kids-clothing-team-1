@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import s from './catalog.module.scss';
 import { ItemCard } from '@/widgets/ItemCard/ItemCard';
+import { Button } from 'antd';
 
 // Обновленный интерфейс Product с полем categoryId
 interface Product {
@@ -123,15 +124,6 @@ const CatalogPage = () => {
         <h2>Фильтры</h2>
         
         <div className={s.categoriesFilter}>
-          <div className={s.filterItem}>
-            <input 
-              type="checkbox" 
-              id="all-categories" 
-              checked={selectedCategories.length === 0}
-              onChange={handleSelectAll}
-            />
-            <label htmlFor="all-categories">Все категории</label>
-          </div>
           
           {categories.map(category => (
             <div key={category.id} className={s.filterItem}>
@@ -149,13 +141,13 @@ const CatalogPage = () => {
         {selectedCategories.length > 0 && (
           <div className={s.selectedFilters}>
             <span>Выбрано категорий: {selectedCategories.length}</span>
-            <button 
+            <Button 
               onClick={() => setSelectedCategories([])} 
               className={s.clearAllFilters}
               aria-label="Сбросить все фильтры"
             >
               Сбросить все
-            </button>
+            </Button>
           </div>
         )}
       </section>
@@ -167,12 +159,12 @@ const CatalogPage = () => {
           {selectedCategories.length > 0 && (
             <div className={s.activeFiltersInfo}>
               <span>Применено фильтров: {selectedCategories.length}</span>
-              <button 
+              <Button 
                 onClick={() => setSelectedCategories([])} 
                 className={s.resetFiltersButton}
               >
                 Сбросить все фильтры
-              </button>
+              </Button>
             </div>
           )}
         </div>
@@ -180,9 +172,9 @@ const CatalogPage = () => {
         {filteredProducts.length === 0 ? (
           <div className={s.noProducts}>
             <p>По вашему запросу товаров не найдено</p>
-            <button onClick={() => setSelectedCategories([])} className={s.resetButton}>
+            <Button onClick={() => setSelectedCategories([])} className={s.resetButton}>
               Показать все товары
-            </button>
+            </Button>
           </div>
         ) : (
           <>
