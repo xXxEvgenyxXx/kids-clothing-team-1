@@ -1,4 +1,6 @@
 import s from './ItemCard.module.scss';
+import { ShoppingCartOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 
 interface ItemCardProps {
     itemTitle?: string,
@@ -19,8 +21,9 @@ export function ItemCard(props: ItemCardProps) {
                 )}
             </div>
             <div className={s.itemInfo}>
-                <h4>{props.itemTitle}</h4>
-                <p>{props.itemPrice} ₽</p>
+                <h4 className={s.itemTitle}>{props.itemTitle}</h4>
+                <p className={s.itemPrice}>{props.itemPrice} ₽</p>
+                <Button className={s.button} icon={<ShoppingCartOutlined/>}></Button>
             </div>
         </div>
     );
