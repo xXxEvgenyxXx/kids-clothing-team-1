@@ -76,7 +76,7 @@ const CartPage = () => {
 
     // Вычисление итоговой суммы
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
-    const deliveryCost = 0 // можно рассчитать позже
+    const deliveryCost = totalPrice > 10000 ? 0 : 1000;
     const finalTotal = totalPrice + deliveryCost
 
     return (
