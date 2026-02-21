@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import s from './catalog.module.scss';
 import { ItemCard } from '@/widgets/ItemCard/ItemCard';
 import { Button } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 
 // Обновленный интерфейс Product с полем categoryId
 interface Product {
@@ -111,7 +112,12 @@ const CatalogPage = () => {
 
   // Показываем индикатор загрузки для всего каталога
   if (loading || loadingCategories) {
-    return <div className={s.loader}>Загрузка каталога...</div>;
+    return (
+      <div className={s.loader}>
+        <LoadingOutlined />
+        Загрузка каталога...
+      </div>
+    )
   }
 
   if (error) {
