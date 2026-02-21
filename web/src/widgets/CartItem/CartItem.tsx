@@ -1,29 +1,20 @@
+// widgets/CartItem/CartItem.tsx
 "use client"
 import s from './CartItem.module.scss'
-import { UpOutlined, DownOutlined } from '@ant-design/icons'
+import { UpOutlined, DownOutlined, DeleteOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
-import { useState } from 'react'
 
 interface CartItemProps {
-    itemImage: string,
-    itemName: string,
-    itemPrice: number,
-    initialQuantity: number
+    itemImage: string
+    itemName: string
+    itemPrice: number
+    quantity: number                // текущее количество
+    onIncrease: () => void          // колбэк увеличения
+    onDecrease: () => void          // колбэк уменьшения
+    onRemove?: () => void           // опционально – удаление товара
 }
 
 export function CartItem(props: CartItemProps) {
-    const [quantity, setQuantity] = useState(props.initialQuantity);
-
-    const increaseQuantity = () => {
-        setQuantity(prev => prev + 1);
-    };
-
-    const decreaseQuantity = () => {
-        if (quantity > 1) {
-            setQuantity(prev => prev - 1);
-        }
-    };
-
     return (
         <div className={s.cartItem}>
             <div className={s.cartItemName}>
@@ -32,23 +23,28 @@ export function CartItem(props: CartItemProps) {
             </div>
             <p className={s.cartItemPrice}>{props.itemPrice}</p>
             <div className={s.cartItemQuantity}>
-                <p>{quantity}</p>
+                <p>{props.quantity}</p>
                 <div className={s.changeItemQuantity}>
                     <Button 
                         type="text" 
                         className={s.addItemQuantity} 
                         icon={<UpOutlined />} 
-                        onClick={increaseQuantity}
+                        onClick={props.onIncrease}
                     />
                     <Button 
                         type="text" 
                         className={s.removeItemQuantity} 
                         icon={<DownOutlined />} 
-                        onClick={decreaseQuantity}
+                        onClick={props.onDecrease}
                     />
                 </div>
             </div>
-            <p>{props.itemPrice * quantity}</p>
+            <p>{props.itemPrice * props.quantity}</p>
+            <Button 
+                icon={<DeleteOutlined />} 
+                onClick={props.onRemove}   // добавляем вызов удаления
+                danger                      // опционально: красный цвет для кнопки удаления
+            />
         </div>
-    );
+    )
 }

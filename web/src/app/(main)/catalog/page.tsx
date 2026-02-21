@@ -188,6 +188,7 @@ const CatalogPage = () => {
               {displayedProducts.map((product) => (
                 <ItemCard
                   key={product.id}
+                  id={product.id}
                   itemImage={product.image || '/images/placeholder.png'}
                   itemAlt={product.name}
                   itemTitle={product.name}
