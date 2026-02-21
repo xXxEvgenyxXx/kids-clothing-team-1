@@ -1,13 +1,15 @@
 import s from './FavoriteItemCard.module.scss'
-import { DeleteOutlined } from '@ant-design/icons'
+import { DeleteOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
-import { ShoppingCartOutlined } from '@ant-design/icons'
 
 interface FavoriteItemCardProps {
-    itemName: string,
-    itemImage: string,
-    itemAlt: string,
+    id: number
+    itemName: string
+    itemImage: string
+    itemAlt: string
     itemPrice: number
+    onRemove: () => void
+    onAddToCart: () => void
 }
 
 export function FavoriteItemCard(props: FavoriteItemCardProps){
@@ -18,12 +20,20 @@ export function FavoriteItemCard(props: FavoriteItemCardProps){
                     src={props.itemImage}
                     alt={props.itemAlt}
                 />
-                <Button className={s.deleteItem} icon={<DeleteOutlined/>} />
+                <Button 
+                    className={s.deleteItem} 
+                    icon={<DeleteOutlined/>} 
+                    onClick={props.onRemove}
+                />
             </div>
             <div className={s.favoriteItemCardContext}>
                 <p className={s.favoriteItemCardName}>{props.itemName}</p>
                 <p className={s.favoriteItemCardPrice}>{props.itemPrice} ₽</p>
-                <Button className={s.addToCart} icon={<ShoppingCartOutlined/>}/>
+                <Button 
+                    className={s.addToCart} 
+                    icon={<ShoppingCartOutlined/>}
+                    onClick={props.onAddToCart}
+                />
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import s from './ItemCard.module.scss';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { Button } from 'antd';
 
 interface ItemCardProps {
@@ -13,8 +13,9 @@ interface ItemCardProps {
 
 export function ItemCard(props: ItemCardProps) {
     const [isInCart, setIsInCart] = useState(false);
+    const [isInFav, setIsInFav] = useState(false);
 
-    // Функция для проверки наличия товара в корзине
+    // --- Корзина ---
     const checkIfInCart = () => {
         try {
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -25,7 +26,6 @@ export function ItemCard(props: ItemCardProps) {
         }
     };
 
-    // Функция для логирования содержимого корзины
     const logCart = () => {
         try {
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -34,24 +34,6 @@ export function ItemCard(props: ItemCardProps) {
             console.error('Ошибка при логировании корзины:', error);
         }
     };
-
-    // При монтировании проверяем статус и логируем корзину
-    useEffect(() => {
-        checkIfInCart();
-        logCart(); // логируем корзину при загрузке компонента
-    }, []);
-
-    // Подписка на изменения localStorage (если корзина меняется в другой вкладке)
-    useEffect(() => {
-        const handleStorageChange = (e: StorageEvent) => {
-            if (e.key === 'cart') {
-                checkIfInCart();
-                logCart(); // логируем при изменении из другой вкладки
-            }
-        };
-        window.addEventListener('storage', handleStorageChange);
-        return () => window.removeEventListener('storage', handleStorageChange);
-    }, []);
 
     const handleAddToCart = () => {
         try {
@@ -72,22 +54,79 @@ export function ItemCard(props: ItemCardProps) {
             }
             
             localStorage.setItem('cart', JSON.stringify(cart));
-            
-            // После добавления обновляем состояние и логируем
             setIsInCart(true);
-            logCart(); // логируем после добавления
-            
-            // Отправляем кастомное событие для обновления других компонентов на этой же странице
+            logCart();
             window.dispatchEvent(new Event('cartUpdated'));
-            
         } catch (error) {
             console.error('Ошибка при работе с корзиной:', error);
         }
     };
 
+    // --- Избранное ---
+    const checkIfInFav = () => {
+        try {
+            const fav = JSON.parse(localStorage.getItem('favorites') || '[]');
+            const exists = fav.some((item: any) => item.id === props.id);
+            setIsInFav(exists);
+        } catch (error) {
+            console.error('Ошибка при чтении избранного:', error);
+        }
+    };
+
+    const handleToggleFav = () => {
+        try {
+            const fav = JSON.parse(localStorage.getItem('favorites') || '[]');
+            let newFav;
+            if (isInFav) {
+                // Удаляем
+                newFav = fav.filter((item: any) => item.id !== props.id);
+            } else {
+                // Добавляем
+                newFav = [...fav, {
+                    id: props.id,
+                    title: props.itemTitle,
+                    price: props.itemPrice,
+                    image: props.itemImage,
+                }];
+            }
+            localStorage.setItem('favorites', JSON.stringify(newFav));
+            setIsInFav(!isInFav);
+            console.log('Избранное обновлено:', newFav);
+            window.dispatchEvent(new Event('favoritesUpdated'));
+        } catch (error) {
+            console.error('Ошибка при работе с избранным:', error);
+        }
+    };
+
+    // Проверка при монтировании и подписка на изменения localStorage
+    useEffect(() => {
+        checkIfInCart();
+        checkIfInFav();
+        logCart(); // для отладки корзины
+    }, []);
+
+    useEffect(() => {
+        const handleStorageChange = (e: StorageEvent) => {
+            if (e.key === 'cart') {
+                checkIfInCart();
+                logCart();
+            }
+            if (e.key === 'favorites') {
+                checkIfInFav();
+            }
+        };
+        window.addEventListener('storage', handleStorageChange);
+        return () => window.removeEventListener('storage', handleStorageChange);
+    }, []);
+
     return (
         <div className={s.itemCard}>
             <div className={s.itemImage}>
+                <Button 
+                    className={s.addToFav} 
+                    icon={isInFav ? <HeartFilled /> : <HeartOutlined />}
+                    onClick={handleToggleFav}
+                />
                 {props.itemImage && (
                     <img
                         src={props.itemImage}
