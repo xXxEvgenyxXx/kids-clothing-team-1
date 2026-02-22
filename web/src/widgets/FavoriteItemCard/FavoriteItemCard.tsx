@@ -10,6 +10,7 @@ interface FavoriteItemCardProps {
     itemPrice: number
     onRemove: () => void
     onAddToCart: () => void
+    isInCart: boolean // новый проп для проверки наличия в корзине
 }
 
 export function FavoriteItemCard(props: FavoriteItemCardProps){
@@ -33,6 +34,7 @@ export function FavoriteItemCard(props: FavoriteItemCardProps){
                     className={s.addToCart} 
                     icon={<ShoppingCartOutlined/>}
                     onClick={props.onAddToCart}
+                    disabled={props.isInCart} // кнопка неактивна, если товар уже в корзине
                 />
             </div>
         </div>

@@ -77,7 +77,8 @@ const CartPage = () => {
     // Вычисление итоговой суммы
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
     const deliveryCost = totalPrice > 10000 ? 0 : 1000;
-    const finalTotal = totalPrice + deliveryCost
+    const finalTotal = cartItems.length > 0 ? totalPrice + deliveryCost : 0;
+    const isEmpty = cartItems.length === 0;
 
     return (
         <div className={s.cartPageWrapper}>
@@ -119,7 +120,7 @@ const CartPage = () => {
                         <hr/>
                         <p>Итог: {finalTotal} ₽</p>
                     </div>
-                    <Button type="primary" href="/delivery" className={s.goToDeliveryButton}>
+                    <Button disabled={isEmpty} type="primary" href="/delivery" className={s.goToDeliveryButton}>
                         Перейти к деталям доставки
                     </Button>
                 </div>

@@ -5,17 +5,26 @@ import s from './FavoritePage.module.scss'
 import { Button, message } from 'antd'
 import { FavoriteItemCard } from '@/widgets/FavoriteItemCard'
 
-// Тип товара в избранном (совпадает с тем, что кладем в localStorage)
+// Тип товара в избранном
 interface FavoriteItem {
     id: number
     title: string
     price: number
     image: string
-    // quantity не нужен, т.к. это просто список товаров
+}
+
+// Тип товара в корзине
+interface CartItem {
+    id: number
+    title: string
+    price: number
+    image: string
+    quantity: number
 }
 
 const FavoritePage = () => {
     const [favorites, setFavorites] = useState<FavoriteItem[]>([])
+    const [cartItems, setCartItems] = useState<CartItem[]>([]) // состояние для корзины
 
     // Загрузка избранного из localStorage
     const loadFavorites = () => {
@@ -29,11 +38,33 @@ const FavoritePage = () => {
         }
     }
 
-    // Сохранение избранного в localStorage и обновление состояния
+    // Загрузка корзины из localStorage
+    const loadCart = () => {
+        try {
+            const stored = localStorage.getItem('cart')
+            const items = stored ? JSON.parse(stored) : []
+            setCartItems(items)
+        } catch (error) {
+            console.error('Ошибка загрузки корзины:', error)
+        }
+    }
+
+    // Сохранение избранного в localStorage
     const saveFavorites = (updatedFavorites: FavoriteItem[]) => {
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
         setFavorites(updatedFavorites)
-        window.dispatchEvent(new Event('storage')) // оповещаем другие вкладки
+        window.dispatchEvent(new Event('favoritesUpdated'))
+    }
+
+    // Проверка, находится ли товар в корзине
+    const isItemInCart = (itemId: number): boolean => {
+        return cartItems.some(item => item.id === itemId)
+    }
+
+    // Проверка, все ли товары из избранного уже в корзине
+    const areAllItemsInCart = (): boolean => {
+        if (favorites.length === 0) return false
+        return favorites.every(favItem => isItemInCart(favItem.id))
     }
 
     // Удаление товара из избранного
@@ -46,12 +77,13 @@ const FavoritePage = () => {
     // Добавление товара в корзину
     const handleAddToCart = (item: FavoriteItem) => {
         try {
-            const cart = JSON.parse(localStorage.getItem('cart') || '[]')
-            const existingItem = cart.find((i: any) => i.id === item.id)
+            const currentCart = JSON.parse(localStorage.getItem('cart') || '[]')
+            const existingItem = currentCart.find((i: any) => i.id === item.id)
+            
             if (existingItem) {
                 existingItem.quantity += 1
             } else {
-                cart.push({
+                currentCart.push({
                     id: item.id,
                     title: item.title,
                     price: item.price,
@@ -59,8 +91,10 @@ const FavoritePage = () => {
                     quantity: 1,
                 })
             }
-            localStorage.setItem('cart', JSON.stringify(cart))
-            window.dispatchEvent(new Event('storage')) // оповещаем другие вкладки
+            
+            localStorage.setItem('cart', JSON.stringify(currentCart))
+            setCartItems(currentCart) // обновляем состояние корзины
+            window.dispatchEvent(new Event('storage'))
             message.success('Товар добавлен в корзину')
         } catch (error) {
             console.error('Ошибка добавления в корзину:', error)
@@ -74,14 +108,16 @@ const FavoritePage = () => {
             message.info('Избранное пусто')
             return
         }
+
         try {
-            const cart = JSON.parse(localStorage.getItem('cart') || '[]')
+            const currentCart = JSON.parse(localStorage.getItem('cart') || '[]')
+            
             favorites.forEach(favItem => {
-                const existing = cart.find((i: any) => i.id === favItem.id)
+                const existing = currentCart.find((i: any) => i.id === favItem.id)
                 if (existing) {
                     existing.quantity += 1
                 } else {
-                    cart.push({
+                    currentCart.push({
                         id: favItem.id,
                         title: favItem.title,
                         price: favItem.price,
@@ -90,7 +126,9 @@ const FavoritePage = () => {
                     })
                 }
             })
-            localStorage.setItem('cart', JSON.stringify(cart))
+            
+            localStorage.setItem('cart', JSON.stringify(currentCart))
+            setCartItems(currentCart) // обновляем состояние корзины
             window.dispatchEvent(new Event('storage'))
             message.success('Все товары добавлены в корзину')
         } catch (error) {
@@ -99,17 +137,33 @@ const FavoritePage = () => {
         }
     }
 
-    // Подписка на изменения localStorage в других вкладках
+    // Подписка на изменения localStorage
     useEffect(() => {
         loadFavorites()
+        loadCart()
 
         const handleStorageChange = (e: StorageEvent) => {
             if (e.key === 'favorites') {
                 loadFavorites()
             }
+            if (e.key === 'cart') {
+                loadCart()
+            }
         }
+
+        // Слушаем кастомные события для обновления на этой же странице
+        const handleFavoritesUpdated = () => loadFavorites()
+        const handleCartUpdated = () => loadCart()
+
         window.addEventListener('storage', handleStorageChange)
-        return () => window.removeEventListener('storage', handleStorageChange)
+        window.addEventListener('favoritesUpdated', handleFavoritesUpdated)
+        window.addEventListener('cartUpdated', handleCartUpdated)
+        
+        return () => {
+            window.removeEventListener('storage', handleStorageChange)
+            window.removeEventListener('favoritesUpdated', handleFavoritesUpdated)
+            window.removeEventListener('cartUpdated', handleCartUpdated)
+        }
     }, [])
 
     return (
@@ -131,13 +185,14 @@ const FavoritePage = () => {
                             itemPrice={item.price}
                             onRemove={() => handleRemove(item.id)}
                             onAddToCart={() => handleAddToCart(item)}
+                            isInCart={isItemInCart(item.id)} // передаем проверку
                         />
                     ))
                 )}
             </div>
             <Button 
                 onClick={handleAddAllToCart}
-                disabled={favorites.length === 0}
+                disabled={favorites.length === 0 || areAllItemsInCart()} // кнопка неактивна, если все товары уже в корзине
             >
                 Поместить все в корзину
             </Button>
