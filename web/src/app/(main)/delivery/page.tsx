@@ -38,59 +38,15 @@ const DeliveryPage = () => {
         window.addEventListener('storage', handleStorageChange)
         return () => window.removeEventListener('storage', handleStorageChange)
     }, [])
-    
-
-  const validateForm = (formData: FormData) => {
-    const newErrors: Record<string, string> = {};
-    
-    // Проверка обязательных полей
-    const requiredFields = [
-      { name: 'name', message: 'Пожалуйста, введите ваше имя!' },
-      { name: 'street', message: 'Пожалуйста, введите адрес улицы!' },
-      { name: 'city', message: 'Пожалуйста, введите город!' },
-      { name: 'phone', message: 'Пожалуйста, введите номер телефона!' },
-      { name: 'email', message: 'Пожалуйста, введите адрес электронной почты!' }
-    ];
-
-    requiredFields.forEach(field => {
-      if (!formData.get(field.name)) {
-        newErrors[field.name] = field.message;
-      }
-    });
-
-    // Проверка email
-    const email = formData.get('email') as string;
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      newErrors.email = 'Неверный формат электронной почты!';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    
-    if (validateForm(formData)) {
-      // Сбор данных в объект
-      const data = Object.fromEntries(formData.entries());
-      console.log('Данные формы:', data);
-      
-      // Здесь ваша логика отправки
-      alert('Форма успешно отправлена!');
-    }
-  };
 
   return (
-    <>
-      <h1>Детали доставки</h1>
+    <div className={s.deliveryPageWrapper}>
+      <h1 className={s.deliveryPageTitle}>Детали доставки</h1>
       
-      <form onSubmit={handleSubmit} className={s.registrationForm}>
-        {/* Поле имени */}
+      <form className={s.deliveryForm}>
         <div className={s.formItem}>
           <label htmlFor="name" className={s.label}>
-            Ваше имя * {errors.name && <span className={s.error}>{errors.name}</span>}
+            Ваше имя
           </label>
           <Input
             id="name"
@@ -113,7 +69,7 @@ const DeliveryPage = () => {
 
         <div className={s.formItem}>
           <label htmlFor="street" className={s.label}>
-            Адрес улицы * {errors.street && <span className={s.error}>{errors.street}</span>}
+            Адрес улицы
           </label>
           <Input
             id="street"
@@ -136,7 +92,7 @@ const DeliveryPage = () => {
 
         <div className={s.formItem}>
           <label htmlFor="city" className={s.label}>
-            Город * {errors.city && <span className={s.error}>{errors.city}</span>}
+            Город
           </label>
           <Input
             id="city"
@@ -148,7 +104,7 @@ const DeliveryPage = () => {
 
         <div className={s.formItem}>
           <label htmlFor="phone" className={s.label}>
-            Номер телефона * {errors.phone && <span className={s.error}>{errors.phone}</span>}
+            Номер телефона
           </label>
           <Input
             id="phone"
@@ -160,7 +116,7 @@ const DeliveryPage = () => {
 
         <div className={s.formItem}>
           <label htmlFor="email" className={s.label}>
-            Адрес электронной почты * {errors.email && <span className={s.error}>{errors.email}</span>}
+            Адрес электронной почты
           </label>
           <Input
             id="email"
@@ -173,22 +129,29 @@ const DeliveryPage = () => {
       </form>
       <div className={s.deliveryDetails}>
         <div className={s.deliveryItems}>
-            {cartItems.length === 0 ? (
-                <p>Корзина пуста</p>
-            ) : (
-                cartItems.map(item => (
-                    <DeliveryItem
-                        key={item.id}
-                        itemImage={item.image || '/images/placeholder.png'}
-                        itemName={item.title}
-                        itemPrice={item.price}
-                        quantity={item.quantity}
-                    />
-                ))
-            )}
+          {cartItems.map((item) => (
+              <DeliveryItem
+                  key={item.id}
+                  itemImage={item.image || '/images/placeholder.png'}
+                  itemName={item.title}
+                  itemPrice={item.price}
+                  quantity={item.quantity}
+              />
+            ))
+          }
+        </div>
+        <hr/>
+        <div className={s.deliveryCostInfo}>
+          <span>Доставка:</span>
+          <span>0</span>
+        </div>
+        <hr/>
+        <div className={s.deliveryCostInfo}>
+          <span>Итог:</span>
+          <span>0</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

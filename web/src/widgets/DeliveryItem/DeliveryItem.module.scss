@@ -1,0 +1,11 @@
+.item {
+    display: flex;
+    gap:10px;
+    .itemImage {
+        width:100px;
+    }
+    .info {
+        display: flex;
+        gap:50px;
+    }
+}
