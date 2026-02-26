@@ -1,0 +1,41 @@
+.contactsPageWrapper {
+    display: flex;
+    gap:40px;
+    justify-content: center;
+    align-items: center;
+    .contactsBlock {
+        box-shadow: 0px 0px 13px 5px var(--box-shadow-color);
+        border-radius:4px;
+        padding: 40px 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contactsInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .contactsInfoSection {
+            .contactsInfoSectionTitle {
+                display: flex;
+                gap:16px;
+                align-items: center;
+                .contactsInfoSectionHeader {
+                    font-weight:500;
+                }
+                .contactsInfoSectionIcon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    background-color: var(--secondary-color);
+                    width:50px;
+                    height:50px;
+                    color: var(--bg-color);
+                    transform: scaleX(-1);
+                    font-size:20px;
+                }
+            }
+        }
+    }
+}
