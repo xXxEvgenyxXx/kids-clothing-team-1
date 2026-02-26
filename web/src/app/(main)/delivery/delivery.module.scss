@@ -16,4 +16,21 @@
             max-width:400px;
         }
     }
+    .deliveryDetails {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap:30px;
+        .deliveryItems {
+            display: flex;
+            flex-direction: column;
+            gap:15px;
+        }
+        .selectPayment {
+            display: flex;
+            flex-direction: column;
+            gap:15px;
+        }
+    }
 }
