@@ -116,6 +116,8 @@ const CartPage = () => {
                 <div className={s.goToDelivery}>
                     <h3>Итоговая сумма</h3>
                     <div className={s.sumDescription}>
+                        <p>Сумма: {totalPrice} ₽</p>
+                        <hr/>
                         <p>Доставка: {deliveryCost} ₽</p>
                         <hr/>
                         <p>Итог: {finalTotal} ₽</p>

@@ -262,6 +262,9 @@ const DeliveryPage = () => {
                     ))}
                 </div>
                 <div className={s.deliveryCostInfo}>
+                    Сумма: {totalPrice} ₽
+                </div>
+                <div className={s.deliveryCostInfo}>
                     Доставка: {deliveryCost} ₽
                 </div>
                 <div className={s.deliveryCostInfo}>
