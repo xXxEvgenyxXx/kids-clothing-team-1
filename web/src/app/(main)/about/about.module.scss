@@ -1,0 +1,18 @@
+.aboutPageWrapper {
+    display: flex;
+    gap:50px;
+    justify-content: center;
+    align-items: center;
+    .aboutPageContent {
+        max-width:525px;
+        line-height: 25px;
+        .aboutPageTitle {
+            letter-spacing: 6%;
+        }
+    }
+    .bannerImageWrapper {
+        .bannerImage  {
+            border-radius: 12px;
+        }
+    }
+}
