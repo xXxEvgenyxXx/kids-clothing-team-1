@@ -4,7 +4,7 @@
     align-items: center;
     gap: 35px;
     width: 100%;
-    padding: 20px; 
+    padding: 20px 0; 
     .bannerImageWrapper {
         position: relative;
         width: 90%;
@@ -25,6 +25,7 @@
         .bannerText {
             display: flex;
             flex-direction: column;
+            text-align: center;
             align-items: center;
         }
     }
@@ -48,6 +49,42 @@
                     font-size:40px;
                     color:var(--bg-color);
                 }
+            }
+        }
+    }
+}
+@media(max-width: 960px){
+    .mainPageWrapper {
+        .featIcons {
+            flex-direction: column;
+            .featIconWrapper {
+                text-align: center;
+            }
+        }
+        .bannerImageWrapper {
+            width:100%;
+        }
+        .banner {
+            padding: 50px;
+        }
+    }
+}
+@media(max-width:768px){
+    .mainPageWrapper {
+        .banner {
+            padding: 25px;
+            .bannerText {
+                font-size:14px;
+            }
+        }
+    }
+}
+@media(max-width:540px){
+    .mainPageWrapper {
+        .banner {
+            padding: 15px;
+            .bannerText {
+                font-size:10px;
             }
         }
     }
