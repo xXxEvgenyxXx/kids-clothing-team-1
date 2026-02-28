@@ -1,10 +1,8 @@
 import s from './header.module.scss'
 import Link from 'next/link'
 import { routes } from '@/constants'
-import {Input} from 'antd'
 import {HeartOutlined, ShoppingCartOutlined} from '@ant-design/icons'
 import clsx from 'clsx'
-import { SearchOutlined } from '@ant-design/icons'
 
 export const Header = () => {
     return (
@@ -17,7 +15,6 @@ export const Header = () => {
                 <Link className={s.headerLink} href={routes.about}>О нас</Link>
             </div>
             <div className={s.headerLinksWrapper}>
-                <Input placeholder="Что вы ищете?" variant="outlined"/> 
                 <Link href={routes.favorite} className={clsx([s.headerLink,s.headerIconLink])}><HeartOutlined /></Link>
                 <Link href={routes.cart} className={clsx([s.headerLink,s.headerIconLink])}><ShoppingCartOutlined /></Link>
             </div>

@@ -8,7 +8,7 @@ export function Footer(){
             <div className={s.footerLinksWrapper}>
                 <h2 className={s.footerLinksHeader}>Эксклюзив</h2>
                 <div className={s.footerLinks}>
-                    <Input />
+                    <Input placeholder='Ваша почта' />
                 </div>
             </div>
             <div className={s.footerLinksWrapper}>

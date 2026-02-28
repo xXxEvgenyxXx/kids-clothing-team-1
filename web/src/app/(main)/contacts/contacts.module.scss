@@ -38,4 +38,15 @@
             }
         }
     }
+    .contactsMessage {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap:25px;
+        .message {
+            grid-column:1/4;
+        }
+        .button {
+            grid-column:3/4;
+        }
+    }
 }
