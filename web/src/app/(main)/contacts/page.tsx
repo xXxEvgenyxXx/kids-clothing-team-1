@@ -31,10 +31,10 @@ const ContactsPage = () => {
                 </div>
             </div>
             <form className={clsx(s.contactsMessage, s.contactsBlock)}>
-                <Input placeholder='Ваше имя' />
-                <Input placeholder='Ваша почта' />
-                <Input placeholder='Ваш телефон' />
-                <Input.TextArea className={s.message} placeholder='Сообщение нам' />
+                <Input required placeholder='Ваше имя' />
+                <Input required placeholder='Ваша почта' />
+                <Input required placeholder='Ваш телефон' />
+                <Input.TextArea required className={s.message} placeholder='Сообщение нам' />
                 <Button className={s.button} type="primary">Отправить сообщение</Button>
             </form>
         </div>

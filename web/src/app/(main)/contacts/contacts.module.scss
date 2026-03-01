@@ -50,3 +50,35 @@
         }
     }
 }
+@media(max-width:960px){
+    .contactsPageWrapper {
+        .contactsMessage {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+@media(max-width:768px){
+    .contactsPageWrapper {
+        flex-direction: column;
+    }
+}
+@media(max-width:480px){
+    .contactsPageWrapper {
+        .contactsInfo {
+            .contactsInfoSection {
+                font-size:14px;
+                .contactsInfoSectionTitle {
+                    .contactsInfoSectionHeader {
+                        font-size:16px;
+                    }
+                    .contactsInfoSectionIcon {
+                        width:30px;
+                        height:30px;
+                        font-size:14px;
+                    }
+                }
+            }
+        }
+    }
+}
