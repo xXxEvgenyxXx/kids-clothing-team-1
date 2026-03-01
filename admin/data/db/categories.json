@@ -1,0 +1,15 @@
+[
+  { "id": 1, "name": "Верхняя одежда", "slug": "outerwear", "parentId": null },
+  { "id": 2, "name": "Платья и юбки", "slug": "dresses", "parentId": null },
+  { "id": 3, "name": "Брюки и джинсы", "slug": "pants", "parentId": null },
+  { "id": 4, "name": "Футболки и топы", "slug": "t-shirts", "parentId": null },
+  { "id": 5, "name": "Обувь", "slug": "shoes", "parentId": null },
+  { "id": 6, "name": "Аксессуары", "slug": "accessories", "parentId": null },
+  { "id": 7, "name": "Спортивная одежда", "slug": "sportswear", "parentId": null },
+  { "id": 8, "name": "Пижамы", "slug": "pajamas", "parentId": null },
+  { "id": 9, "name": "Купальники", "slug": "swimwear", "parentId": null },
+  { "id": 10, "name": "Головные уборы", "slug": "hats", "parentId": null },
+  { "id": 11, "name": "Носки и колготки", "slug": "socks", "parentId": null },
+  { "id": 12, "name": "Варежки и перчатки", "slug": "gloves", "parentId": null },
+  { "id": 13, "name": "Шарфы", "slug": "scarves", "parentId": null }
+]

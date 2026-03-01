@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 1,
+        "price": 4500
+      },
+      {
+        "productId": 5,
+        "quantity": 2,
+        "price": 650
+      }
+    ],
+    "total": 5800,
+    "status": "delivered",
+    "createdAt": "2025-02-01T09:30:00Z",
+    "shippingAddress": {
+      "fullAddress": "г. Москва, ул. Ленина, д. 10, кв. 25",
+      "zip": "101000"
+    },
+    "paymentMethod": "card"
+  }
+]

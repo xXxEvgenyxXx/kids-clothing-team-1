@@ -1,0 +1,36 @@
+.deliveryPageWrapper {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:50px;
+    .deliveryPageTitle {
+        grid-column:1/3;
+    }
+    .deliveryForm {
+        display: flex;
+        flex-direction: column;
+        gap:15px;
+        .formItem {
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+            max-width:400px;
+        }
+    }
+    .deliveryDetails {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap:30px;
+        .deliveryItems {
+            display: flex;
+            flex-direction: column;
+            gap:15px;
+        }
+        .selectPayment {
+            display: flex;
+            flex-direction: column;
+            gap:15px;
+        }
+    }
+}
