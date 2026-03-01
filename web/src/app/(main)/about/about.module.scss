@@ -16,3 +16,8 @@
         }
     }
 }
+@media(max-width:960px){
+    .aboutPageWrapper  {
+        flex-direction: column;
+    }
+}
