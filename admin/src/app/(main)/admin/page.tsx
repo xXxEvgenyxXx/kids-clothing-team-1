@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import s from './admin.module.scss';
 import { StatCard } from '@/widgets/StatCard';
 import { stats as statsConfig } from '@/constants/stats';
-import { AdminLayout } from './layout/layout';
+import { AdminLayout } from './layout';
 
 // Типы данных (можно вынести в отдельный файл)
 export interface Product {

@@ -1,11 +1,12 @@
 import s from './categories.module.scss'
+import { AdminLayout } from '../layout';
 
 const AdminCategoriesPage = () => {
     
     return (
-        <div>
-
-        </div>
+        <AdminLayout>
+            1234
+        </AdminLayout>
     );
 };
 

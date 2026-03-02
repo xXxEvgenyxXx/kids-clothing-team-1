@@ -1,11 +1,12 @@
 import s from './products.module.scss'
+import { AdminLayout } from '../layout';
 
 const AdminProductsPage = () => {
     
     return (
-        <div>
-
-        </div>
+        <AdminLayout>
+            1234
+        </AdminLayout>
     );
 };
 
