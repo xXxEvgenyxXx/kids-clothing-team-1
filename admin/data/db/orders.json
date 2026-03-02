@@ -22,5 +22,48 @@
       "zip": "101000"
     },
     "paymentMethod": "card"
+  },
+  {
+    "id": 1772437900311,
+    "createdAt": "2026-03-02T07:51:38.260Z",
+    "userId": 1,
+    "items": [
+      {
+        "productId": 10,
+        "quantity": 8,
+        "price": 1300
+      }
+    ],
+    "total": 10400,
+    "status": "paid",
+    "shippingAddress": {
+      "fullAddress": "Улица Ленина, 15, кв/этаж Квартира 10, 3 этаж, г. Москва",
+      "zip": "101000"
+    },
+    "paymentMethod": "cash"
+  },
+  {
+    "id": 1772440319033,
+    "createdAt": "2026-03-02T08:31:56.132Z",
+    "userId": 1,
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 1,
+        "price": 4500
+      },
+      {
+        "productId": 2,
+        "quantity": 3,
+        "price": 2100
+      }
+    ],
+    "total": 10800,
+    "status": "paid",
+    "shippingAddress": {
+      "fullAddress": "Кронштадский Бульвар, 37Б, кв/этаж 102, г. Москва",
+      "zip": ""
+    },
+    "paymentMethod": "cash"
   }
 ]
