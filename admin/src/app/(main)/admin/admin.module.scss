@@ -1,9 +1,10 @@
-.adminPageWrapper {
-    .adminStatsWrapper {
-        .adminStats {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap:50px;
-        }
+.adminStatsWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .adminStats {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap:50px;
     }
 }

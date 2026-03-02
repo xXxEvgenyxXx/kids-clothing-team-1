@@ -1,0 +1,22 @@
+.adminLayoutWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    .adminNavWrapper {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 13px 5px var(--box-shadow-color);
+        padding:15px;
+        gap:15px;
+        .adminNavLink {
+            text-decoration: none;
+            color:var(--text-color);
+            transition: 0.3s;
+            &:hover {
+                color:var(--text-hover-color);
+                transition:0.3s;
+            };
+        }
+    }
+}

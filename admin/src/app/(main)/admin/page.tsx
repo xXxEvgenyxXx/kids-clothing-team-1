@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import s from './admin.module.scss';
 import { StatCard } from '@/widgets/StatCard';
 import { stats as statsConfig } from '@/constants/stats';
+import { AdminLayout } from './layout/layout';
 
 // Типы данных (можно вынести в отдельный файл)
 export interface Product {
@@ -125,8 +126,7 @@ const AdminPage = () => {
     });
 
     return (
-        <div className={s.adminPageWrapper}>
-            <aside>{/* боковое меню */}</aside>
+        <AdminLayout>
             <div className={s.adminStatsWrapper}>
                 <h1>Общая статистика</h1>
                 <div className={s.adminStats}>
@@ -144,7 +144,7 @@ const AdminPage = () => {
                     )}
                 </div>
             </div>
-        </div>
+        </AdminLayout>
     );
 };
 
