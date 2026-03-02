@@ -127,9 +127,9 @@ const AdminPage = () => {
     return (
         <div className={s.adminPageWrapper}>
             <aside>{/* боковое меню */}</aside>
-            <div>
+            <div className={s.adminStatsWrapper}>
                 <h1>Общая статистика</h1>
-                <div>
+                <div className={s.adminStats}>
                     {loading ? (
                         <p>Загрузка...</p>
                     ) : (

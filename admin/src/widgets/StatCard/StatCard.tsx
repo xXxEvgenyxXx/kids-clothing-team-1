@@ -11,7 +11,7 @@ export const StatCard = (props: StatCardProps) => {
     const Icon = props.icon; 
     return (
         <div className={s.statCard}>
-            <Icon />
+            <p className={s.icon}><Icon /></p>
             <p>{props.count}</p>
             <p>{props.title}</p>
         </div>
