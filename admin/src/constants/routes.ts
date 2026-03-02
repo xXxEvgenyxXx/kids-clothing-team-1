@@ -5,5 +5,6 @@ export const routes = {
     favorite: '/favorite',
     delivery: '/delivery',
     contacts: '/contacts',
-    about: '/about'
+    about: '/about', 
+    admin: '/admin'
 }

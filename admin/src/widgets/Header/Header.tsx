@@ -63,6 +63,7 @@ export const Header = () => {
                 <Link className={s.headerLink} href={routes.catalog}>Каталог</Link>
                 <Link className={s.headerLink} href={routes.contacts}>Контакты</Link>
                 <Link className={s.headerLink} href={routes.about}>О нас</Link>
+                <Link className={s.headerLink} href={routes.admin}>Панель администратора</Link>
             </div>
             <div className={s.headerLinksWrapper}>
                 <Link href={routes.favorite} className={clsx([s.headerLink,s.headerIconLink])}><HeartOutlined /></Link>
