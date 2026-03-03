@@ -8,7 +8,7 @@ export interface Product extends Identifiable {
   price: number;
   description?: string;
   createdAt?: string;
-  // другие поля по необходимости
+  inStock:number;
 }
 
 export interface Category extends Identifiable {

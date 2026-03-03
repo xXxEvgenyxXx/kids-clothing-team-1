@@ -35,9 +35,10 @@ export async function PUT(
 ) {
   try {
     const { id } = params;
+    const productId = String(id); // гарантируем строку
     const updatedData = await request.json() as Partial<Omit<Product, 'id' | 'createdAt'>>;
     const products = await readJSONFile<Product>(FILE_NAME);
-    const index = products.findIndex(p => p.id === id);
+    const index = products.findIndex(p => String(p.id) === productId);
 
     if (index === -1) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
@@ -54,6 +55,7 @@ export async function PUT(
 
     return NextResponse.json(updatedProduct);
   } catch (error) {
+    console.error('PUT error:', error); // добавьте логирование
     return NextResponse.json(
       { error: 'Failed to update product' },
       { status: 500 }
