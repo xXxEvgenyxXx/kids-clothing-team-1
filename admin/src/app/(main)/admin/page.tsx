@@ -5,6 +5,7 @@ import s from './admin.module.scss';
 import { StatCard } from '@/widgets/StatCard';
 import { stats as statsConfig } from '@/constants/stats';
 import { AdminLayout } from './layout';
+import type { OrderStatus } from '@/types';
 
 // Типы данных (можно вынести в отдельный файл)
 export interface Product {
@@ -36,8 +37,6 @@ export interface ShippingAddress {
     fullAddress: string;
     zip: string;
 }
-
-export type OrderStatus = 'pending' | 'paid' | 'shipping' | 'delivered' | 'cancelled';
 
 export interface Order {
     id: number;

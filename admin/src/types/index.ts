@@ -11,6 +11,8 @@ export interface Product extends Identifiable {
   inStock:number;
 }
 
+export type OrderStatus = 'pending' | 'paid' | 'shipping' | 'delivered' | 'cancelled';
+
 export interface Category extends Identifiable {
   name: string;
   // ...

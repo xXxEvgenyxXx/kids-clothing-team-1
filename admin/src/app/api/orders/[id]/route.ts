@@ -37,7 +37,7 @@ export async function PUT(
     const { id } = params;
     const updatedData = await request.json() as Partial<Omit<Order, 'id' | 'createdAt'>>;
     const orders = await readJSONFile<Order>(FILE_NAME);
-    const index = orders.findIndex(o => o.id === id);
+    const index = orders.findIndex(o => String(o.id) === id);
 
     if (index === -1) {
       return NextResponse.json({ error: 'Order not found' }, { status: 404 });
