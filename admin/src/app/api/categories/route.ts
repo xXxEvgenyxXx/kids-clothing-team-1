@@ -16,7 +16,6 @@ type NewCategory = {
 };
 
 const FILE_NAME = 'categories.json';
-export const dynamic = 'force-dynamic';
 
 // Вспомогательная функция для проверки типа
 function isCategoryData(data: unknown): data is { id: unknown; name: unknown; slug: unknown; parentId: unknown } {

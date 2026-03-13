@@ -6,6 +6,7 @@ import { StatCard } from '@/widgets/StatCard';
 import { stats as statsConfig } from '@/constants/stats';
 import { AdminLayout } from './layout';
 import type { OrderStatus } from '@/types';
+import { apiFetch } from '@/lib/apiFetch';
 
 // Типы данных (можно вынести в отдельный файл)
 export interface Product {
@@ -60,8 +61,8 @@ const AdminPage = () => {
         const fetchData = async () => {
             try {
                 const [productsRes, ordersRes] = await Promise.all([
-                    fetch('/api/products'),
-                    fetch('/api/orders')
+                    apiFetch('/api/products'),
+                    apiFetch('/api/orders')
                 ]);
                 const productsData = await productsRes.json();
                 const ordersData = await ordersRes.json();

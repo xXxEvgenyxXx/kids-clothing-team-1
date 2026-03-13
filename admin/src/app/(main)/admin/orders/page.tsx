@@ -5,6 +5,7 @@ import { Table, Select, Typography, Spin, Alert, Space, Statistic, Card, Row, Co
 import { AdminLayout } from '../layout';
 import { Order, OrderStatus } from '@/types';
 import type { ColumnsType } from 'antd/es/table';
+import { apiFetch } from '@/lib/apiFetch';
 
 const { Title } = Typography;
 const { Option } = Select;
@@ -21,7 +22,7 @@ const AdminOrdersPage = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/orders');
+      const res = await apiFetch('/api/orders');
       if (!res.ok) throw new Error('Ошибка загрузки заказов');
       const data = await res.json();
       setOrders(data);

@@ -5,6 +5,7 @@ import s from './catalog.module.scss';
 import { ItemCard } from '@/widgets/ItemCard/ItemCard';
 import { Button } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+import { apiFetch } from '@/lib/apiFetch';
 
 // Обновленный интерфейс Product с полем categoryId
 interface Product {
@@ -39,7 +40,7 @@ const CatalogPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('/api/products');
+        const res = await apiFetch('/api/products');
         if (!res.ok) throw new Error('Ошибка загрузки товаров');
         const data = await res.json();
         
@@ -64,7 +65,7 @@ const CatalogPage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch('/api/categories');
+        const res = await apiFetch('/api/categories');
         if (!res.ok) throw new Error('Ошибка загрузки категорий');
         const data = await res.json();
         setCategories(data);

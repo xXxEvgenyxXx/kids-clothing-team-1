@@ -2,10 +2,6 @@ import { NextResponse } from 'next/server';
 import { readJSONFile, writeJSONFile, generateId } from '@/lib/db';
 import { Order } from '@/types';
 
-// This API reads/writes local JSON files so it must run in a dynamic
-// server runtime when Next is configured with `output: 'export'`.
-export const dynamic = 'force-dynamic';
-
 const FILE_NAME = 'orders.json';
 
 export async function GET() {

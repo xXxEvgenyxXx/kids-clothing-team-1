@@ -2,10 +2,17 @@ import { NextResponse } from 'next/server';
 import { readJSONFile, writeJSONFile } from '@/lib/db';
 import { Product } from '@/types';
 
-// Этот API работает с конкретным продуктом по ID, поэтому должен быть динамическим
-export const dynamic = 'force-dynamic';
-
 const FILE_NAME = 'products.json';
+
+// Перечисляет все id продуктов для статического экспорта (GitHub Pages)
+export async function generateStaticParams() {
+  try {
+    const products = await readJSONFile<Product>(FILE_NAME);
+    return products.map(p => ({ id: String(p.id) }));
+  } catch {
+    return [];
+  }
+}
 
 export async function GET(
   request: Request,

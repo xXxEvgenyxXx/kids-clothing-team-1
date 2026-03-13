@@ -6,6 +6,7 @@ import { DropboxOutlined } from '@ant-design/icons';
 import s from './products.module.scss';
 import { AdminLayout } from '../layout';
 import { Product } from '@/types';
+import { apiFetch } from '@/lib/apiFetch';
 
 const AdminProductsPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -16,7 +17,7 @@ const AdminProductsPage = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/products');
+      const res = await apiFetch('/api/products');
       if (!res.ok) throw new Error('Ошибка загрузки');
       const data = await res.json();
       setProducts(data);

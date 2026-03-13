@@ -5,6 +5,7 @@ import { Input, Button, Radio, message } from 'antd';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { DeliveryItem } from '@/widgets/DeliveryItem';
+import { apiFetch } from '@/lib/apiFetch';
 
 interface CartItemData {
     id: number;
@@ -107,7 +108,7 @@ const DeliveryPage = () => {
         };
 
         try {
-            const response = await fetch('/api/orders', {
+            const response = await apiFetch('/api/orders', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(order),

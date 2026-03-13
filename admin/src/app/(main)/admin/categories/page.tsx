@@ -5,6 +5,7 @@ import { Table, Spin, Alert, Typography } from 'antd';
 import s from './categories.module.scss';
 import { AdminLayout } from '../layout';
 import { FolderOpenOutlined } from '@ant-design/icons';
+import { apiFetch } from '@/lib/apiFetch';
 
 // Типы данных (можно вынести в отдельный файл)
 interface Category {
@@ -47,8 +48,8 @@ const AdminCategoriesPage = () => {
       try {
         setLoading(true);
         const [categoriesRes, productsRes] = await Promise.all([
-          fetch('/api/categories'),
-          fetch('/api/products'),
+          apiFetch('/api/categories'),
+          apiFetch('/api/products'),
         ]);
 
         if (!categoriesRes.ok) throw new Error('Ошибка загрузки категорий');

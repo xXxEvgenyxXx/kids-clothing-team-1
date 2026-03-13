@@ -1,0 +1,63 @@
+name: Deploy web → web1 (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'data/**'
+      - '.github/workflows/deploy-web.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # нужно для записи в ветку gh-pages
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout ────────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. pnpm ────────────────────────────────────────────────────────────
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      # ── 3. Node ────────────────────────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+
+      # ── 4. Install ─────────────────────────────────────────────────────────
+      - name: Install dependencies
+        working-directory: web
+        run: pnpm install --frozen-lockfile
+
+      # ── 5. Build ───────────────────────────────────────────────────────────
+      # NEXT_BASE_PATH   — используется в next.config.ts (basePath / assetPrefix)
+      # NEXT_PUBLIC_BASE_PATH — передаётся в браузер; apiFetch добавляет его к /api/*
+      - name: Build static export
+        working-directory: web
+        run: pnpm run build
+        env:
+          NEXT_STATIC_EXPORT: 'true'
+          NEXT_BASE_PATH: '/${{ github.event.repository.name }}/web1'
+          NEXT_PUBLIC_BASE_PATH: '/${{ github.event.repository.name }}/web1'
+
+      # ── 6. Deploy ──────────────────────────────────────────────────────────
+      # Публикует папку web/out → ветка gh-pages, подпапка web1/
+      # keep_files: true — не удаляет соседние папки (admin1/)
+      - name: Deploy to GitHub Pages (web1)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: web/out
+          destination_dir: web1
+          keep_files: true

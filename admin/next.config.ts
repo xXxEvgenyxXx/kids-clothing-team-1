@@ -1,14 +1,21 @@
 import type { NextConfig } from "next";
 
+// При сборке для GitHub Pages установите:
+//   NEXT_STATIC_EXPORT=true
+//   NEXT_BASE_PATH=/<repo-name>/admin1
+//   NEXT_PUBLIC_BASE_PATH=/<repo-name>/admin1
+const isStaticExport = process.env.NEXT_STATIC_EXPORT === 'true';
+const basePath = process.env.NEXT_BASE_PATH ?? '';
+
 const nextConfig: NextConfig = {
-  // Remove `output: 'export'` to allow dynamic server routes that read/write
-  // local JSON files during development.
+  ...(isStaticExport && { output: 'export' }),
   distDir: 'out',
-  assetPrefix: "/",
+  basePath,
+  assetPrefix: basePath || '/',
   trailingSlash: true,
   images: {
     unoptimized: true,
-  }
+  },
 };
 
 export default nextConfig;

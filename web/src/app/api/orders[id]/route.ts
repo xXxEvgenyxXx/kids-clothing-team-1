@@ -3,7 +3,7 @@ import { readJSONFile, writeJSONFile } from '@/lib/db';
 import { Order } from '@/types';
 
 // Этот API работает с конкретным заказом по ID, поэтому должен быть динамическим
-export const dynamic = 'force-dynamic';
+
 
 const FILE_NAME = 'orders.json';
 

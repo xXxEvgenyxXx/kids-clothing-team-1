@@ -3,7 +3,7 @@ import { readJSONFile, writeJSONFile } from '@/lib/db';
 import { Category } from '@/types';
 
 // Этот API работает с конкретной категорией по ID, поэтому должен быть динамическим
-export const dynamic = 'force-dynamic';
+
 
 const FILE_NAME = 'categories.json';
 
